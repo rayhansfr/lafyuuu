@@ -2,27 +2,24 @@ package com.example.lafyuu
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class HomePage : AppCompatActivity() {
+class SuperFlashSaleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_home_page)
+        setContentView(R.layout.activity_super_flash_sale)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
 
@@ -36,20 +33,14 @@ class HomePage : AppCompatActivity() {
         val adapter = CardAdapter(cardItemList)
         recyclerView.adapter = adapter
 
-        val superflashBtn: ImageView = findViewById(R.id.superflashBtn)
-        superflashBtn.setOnClickListener {
-            Intent(this, SuperFlashSaleActivity::class.java).also {
-                startActivity(it)
-                finish()
-            }
-        }
-
-        val favBtn: ImageView = findViewById(R.id.favBtn)
-        favBtn.setOnClickListener {
-            Intent(this, FavouriteItemsActivity::class.java).also {
+        val backBtn: ImageView = findViewById(R.id.backBtn)
+        backBtn.setOnClickListener {
+            Intent(this, HomePage::class.java).also {
                 startActivity(it)
                 finish()
             }
         }
     }
+
+
 }
