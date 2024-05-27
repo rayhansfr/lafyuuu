@@ -30,7 +30,9 @@ class SuperFlashSaleActivity : AppCompatActivity() {
             CardItem(R.drawable.react_eng_4, "FS - Nike Air Max 270 React Eng", R.drawable.rating, "$299,43", "$534,33", "24% Off")
         )
 
-        val adapter = CardAdapter(cardItemList)
+        val adapter = CardAdapter(cardItemList) {
+            startActivity(Intent(this, DetailProductActivity::class.java))
+        }
         recyclerView.adapter = adapter
 
         val backBtn: ImageView = findViewById(R.id.backBtn)

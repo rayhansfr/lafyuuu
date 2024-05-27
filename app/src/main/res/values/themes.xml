@@ -6,4 +6,9 @@
          <item name="colorPrimary">@color/blue </item>
     </style>
 
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlActivated">#ffc745</item>
+        <item name="colorControlNormal">#424958</item>
+    </style>
+
 </resources>

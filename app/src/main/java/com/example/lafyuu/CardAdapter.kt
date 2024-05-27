@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CardAdapter(private val cardItemList: List<CardItem>) : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
+class CardAdapter(private val cardItemList: List<CardItem>, private val onItemClick: () -> Unit) : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
@@ -22,6 +22,10 @@ class CardAdapter(private val cardItemList: List<CardItem>) : RecyclerView.Adapt
         holder.itemPrice.text = item.price
         holder.itemOriginalPrice.text = item.originalPrice
         holder.itemDiscount.text = item.discount
+
+        holder.itemView.setOnClickListener {
+            onItemClick.invoke()
+        }
     }
 
     override fun getItemCount(): Int {

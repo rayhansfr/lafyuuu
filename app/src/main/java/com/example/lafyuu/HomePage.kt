@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -33,12 +34,32 @@ class HomePage : AppCompatActivity() {
             CardItem(R.drawable.react_eng_4, "FS - Nike Air Max 270 React Eng", R.drawable.rating, "$299,43", "$534,33", "24% Off")
         )
 
-        val adapter = CardAdapter(cardItemList)
+        val adapter = CardAdapter(cardItemList) {
+            startActivity(Intent(this, DetailProductActivity::class.java))
+        }
+
         recyclerView.adapter = adapter
 
         val superflashBtn: ImageView = findViewById(R.id.superflashBtn)
         superflashBtn.setOnClickListener {
             Intent(this, SuperFlashSaleActivity::class.java).also {
+                startActivity(it)
+                finish()
+            }
+        }
+
+
+        val redShoe: LinearLayout = findViewById(R.id.product)
+        redShoe.setOnClickListener {
+            Intent(this, DetailProductActivity::class.java).also {
+                startActivity(it)
+                finish()
+            }
+        }
+
+        val redShoe2: LinearLayout = findViewById(R.id.product1)
+        redShoe2.setOnClickListener {
+            Intent(this, DetailProductActivity::class.java).also {
                 startActivity(it)
                 finish()
             }

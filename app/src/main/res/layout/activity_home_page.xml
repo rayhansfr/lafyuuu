@@ -424,6 +424,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/product"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="12dp"
@@ -647,6 +648,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/product1"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="12dp"
